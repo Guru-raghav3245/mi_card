@@ -1,4 +1,4 @@
-# mi_card2
+# mi_card
 
 This is a side project for me. 
 This project is basically a personal digital business card
