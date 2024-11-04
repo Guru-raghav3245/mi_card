@@ -7,4 +7,6 @@ It is a replacement for your default conacts app, but also helping you to add ot
 ## This project is created by a person who was just exposed to flutter, so please don't expect much.
 
 
-## I am always looking for improvements, so if you have any idea on how to take this project further, ping me on master.guru.raghav@gmail.com
+## I am always looking for improvements, so if you have any idea on how to take this project further, ping me on master.guru.raghav@gmail.com, or just upload an issue.
+
+This project is being worked on currenty, and a lot of updates are comings
