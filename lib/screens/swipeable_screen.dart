@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mi_card2/models/profile_data.dart';
-import 'package:mi_card2/widgets/profile_card.dart';
-import 'package:mi_card2/widgets/search_bar.dart';
+import 'package:mi_card/models/profile_data.dart';
+import 'package:mi_card/widgets/profile_card.dart';
+import 'package:mi_card/widgets/search_bar.dart';
 import 'dart:math';
 
 class SwipeableScreen extends StatefulWidget {

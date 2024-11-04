@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mi_card2/screens/swipeable_screen.dart';
-import 'package:mi_card2/widgets/editable_card.dart';
-import 'package:mi_card2/models/profile_data.dart';
+import 'package:mi_card/screens/swipeable_screen.dart';
+import 'package:mi_card/widgets/editable_card.dart';
+import 'package:mi_card/models/profile_data.dart';
 import 'dart:math';
 
 class HomeScreen extends StatefulWidget {

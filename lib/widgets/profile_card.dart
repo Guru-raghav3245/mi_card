@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mi_card2/models/profile_data.dart';
+import 'package:mi_card/models/profile_data.dart';
 
 class ProfileCard extends StatelessWidget {
   final ProfileData profile;
