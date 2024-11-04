@@ -1,16 +1,10 @@
 # mi_card2
 
-A new Flutter project.
+This is a side project for me. 
+This project is basically a personal digital business card
+It is a replacement for your default conacts app, but also helping you to add other info about the person you might forget.
 
-## Getting Started
+## This project is created by a person who was just exposed to flutter, so please don't expect much.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## I am always looking for improvements, so if you have any idea on how to take this project further, ping me on master.guru.raghav@gmail.com
