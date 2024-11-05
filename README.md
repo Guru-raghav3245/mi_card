@@ -9,6 +9,16 @@ It is a replacement for your default conacts app, but also helping you to add ot
 
 ## I am always looking for improvements, so if you have any idea on how to take this project further, ping me on master.guru.raghav@gmail.com, or just upload an issue.
 
+### functionalities - 
+    * Displaying Digital Profile Card
+    * Editable Digital Profile Card
+    * Adding Profile Cards For each Contact
+    * Editing Profile Cards
+    * Marking profiles Favourite
+    * Deleting Profile Cards
+      * Able to undo deletion
+    * Light and Dark Mode
+
 This project is being worked on currenty, and a lot of updates are coming.
 <img width="499" alt="Screenshot 2024-11-04 at 17 29 05" src="https://github.com/user-attachments/assets/9604bb9b-200b-400e-81d1-b62885ee6f9f">
 <img width="496" alt="Screenshot 2024-11-04 at 17 30 08" src="https://github.com/user-attachments/assets/faaa1c1b-d8e8-4f11-8ac3-35ee39fa2ea8">
