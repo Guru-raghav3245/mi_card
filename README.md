@@ -17,13 +17,13 @@ It is a replacement for your default conacts app, but also helping you to add ot
       * Edit Profile Cards: Update information on existing profile cards.
       * Delete Profile Cards: Remove a profile card with an option to undo the deletion.
    ### User Experience
-      Favorite Profiles: Mark profiles as favorites for quick access.
-      Light and Dark Mode: Toggle between light and dark themes.
-      Search Bar: Easily locate profile cards using a search function.
+      * Favorite Profiles: Mark profiles as favorites for quick access.
+      * Light and Dark Mode: Toggle between light and dark themes.
+      * Search Bar: Easily locate profile cards using a search function.
    ### Data Integrity
-      Validation on Add/Edit: Ensure fields aren’t empty when creating or editing profiles.
-      Profile Details
-      Profile Information Display: Each card displays contact’s name, role, email, and phone number.
+      * Validation on Add/Edit: Ensure fields aren’t empty when creating or editing profiles.
+      * Profile Details
+      * Profile Information Display: Each card displays contact’s name, role, email, and phone number.
 
 This project is being worked on currenty, and a lot of updates are coming.
 <img width="499" alt="Screenshot 2024-11-04 at 17 29 05" src="https://github.com/user-attachments/assets/9604bb9b-200b-400e-81d1-b62885ee6f9f">
