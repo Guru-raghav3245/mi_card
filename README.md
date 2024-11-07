@@ -12,6 +12,7 @@ It is a replacement for your default conacts app, but also helping you to add ot
 ## Functionalities
    ### Profile Management
       * Display Digital Profile Card: Show a digital card for each contact with key details.
+      * Can change your profile picture in the Home Screen. You can choose from the gallery or use the camera to take a selfie.
       * Editable Profile Card: Modify contact information as needed.
       * Add New Profile Cards: Add a new profile card for each contact.
       * Edit Profile Cards: Update information on existing profile cards.
