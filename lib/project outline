@@ -1,0 +1,12 @@
+lib 
+   models
+    profile_data.dart  
+
+   screens
+    home_screen.dart
+    contacts_list.dart
+
+   widgets 
+    editable_card.dart
+    profile_card.dart
+    search_bar.dart

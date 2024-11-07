@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mi_card/screens/swipeable_screen.dart';
+import 'package:mi_card/screens/contacts_list.dart';
 import 'package:mi_card/widgets/editable_card.dart';
 import 'package:mi_card/models/profile_data.dart';
-import 'dart:math';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -38,20 +37,6 @@ class _HomeScreenState extends State<HomeScreen> {
     discordController.text = discord;
 
     profiles = [
-      ProfileData(
-        name: 'Magesh Kuppan',
-        role: 'Guru\'s Dad/ Software Architect',
-        phone: '+91 99019 11221',
-        email: 'tkmagesh77@gmail.com',
-        color: Colors.blue,
-      ),
-      ProfileData(
-        name: 'Meena Magesh',
-        role: 'Guru\'s Mom/ Investor',
-        phone: '+91 9900350777',
-        email: 'mca.meena@gmail.com',
-        color: Colors.pink,
-      ),
     ];
   }
 
@@ -66,127 +51,6 @@ class _HomeScreenState extends State<HomeScreen> {
         discord = discordController.text;
       }
     });
-  }
-
-  void addNewProfile() {
-    showDialog(
-      context: context,
-      builder: (context) {
-        TextEditingController nameController = TextEditingController();
-        TextEditingController roleController = TextEditingController();
-        TextEditingController phoneController = TextEditingController();
-        TextEditingController emailController = TextEditingController();
-
-        return AlertDialog(
-          title: const Text('Add New Profile'),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const Text(
-                'You can enter "-" if you want to leave any field blank.',
-                style: TextStyle(color: Colors.grey), // Optional styling
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(
-                  height: 10), // Spacing between hint and text fields
-              TextField(
-                controller: nameController,
-                decoration: const InputDecoration(
-                  hintText: 'Name',
-                ),
-              ),
-              TextField(
-                controller: roleController,
-                decoration: const InputDecoration(
-                  hintText: 'Role',
-                ),
-              ),
-              TextField(
-                controller: phoneController,
-                decoration: const InputDecoration(
-                  hintText: 'Phone Number',
-                ),
-                keyboardType: TextInputType.phone,
-              ),
-              TextField(
-                controller: emailController,
-                decoration: const InputDecoration(
-                  hintText: 'Email',
-                ),
-                keyboardType: TextInputType.emailAddress,
-              ),
-            ],
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                // Validate inputs
-                if (nameController.text.isEmpty && nameController.text != "-") {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                        content: Text('Name cannot be empty unless using "-"')),
-                  );
-                  return;
-                }
-                if (roleController.text.isEmpty && roleController.text != "-") {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                        content: Text('Role cannot be empty unless using "-"')),
-                  );
-                  return;
-                }
-                if (phoneController.text.isEmpty &&
-                    phoneController.text != "-") {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                        content: Text(
-                            'Phone number cannot be empty unless using "-"')),
-                  );
-                  return;
-                }
-                if (emailController.text.isEmpty &&
-                    emailController.text != "-") {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                        content:
-                            Text('Email cannot be empty unless using "-"')),
-                  );
-                  return;
-                }
-
-                // If all validations pass, add the profile
-                setState(() {
-                  profiles.add(ProfileData(
-                    name: nameController.text,
-                    role: roleController.text,
-                    phone: phoneController.text,
-                    email: emailController.text,
-                    color: getRandomColor(),
-                  ));
-                });
-                Navigator.pop(context);
-              },
-              child: const Text('Add'),
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  Color getRandomColor() {
-    final random = Random();
-    final List<Color> presetColors = [
-      Colors.blueAccent,
-      Colors.redAccent.withOpacity(0.2),
-      Colors.greenAccent,
-      Colors.purpleAccent,
-      Colors.orangeAccent,
-      Colors.yellowAccent,
-      Colors.tealAccent,
-      Colors.pinkAccent,
-    ];
-    return presetColors[random.nextInt(presetColors.length)];
   }
 
   @override
@@ -314,7 +178,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SwipeableScreen(
+                      builder: (context) => ContactsListScreen(
                         profiles: profiles,
                         onProfilesUpdated: (updatedProfiles) {
                           setState(() {

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class ProfileData {
-  final String name;
-  final String role;
-  final String phone;
-  final String email;
-  final Color color;
+  String name;
+  String role;
+  String phone;
+  String email;
+  Color color;
   bool isFavorite; // Added this line
 
   ProfileData({
