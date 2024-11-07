@@ -1,4 +1,6 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart'; // Import image_picker package
 import 'package:mi_card/screens/contacts_list.dart';
 import 'package:mi_card/widgets/editable_card.dart';
 import 'package:mi_card/models/profile_data.dart';
@@ -18,6 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   String phone = '+91 82174 70373';
   String email = 'master.guru.raghav@gmail.com';
   String discord = 'guru_raghav_';
+  File? _profileImage; // Add a variable to store the profile image
 
   final TextEditingController nameController = TextEditingController();
   final TextEditingController roleController = TextEditingController();
@@ -36,8 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
     emailController.text = email;
     discordController.text = discord;
 
-    profiles = [
-    ];
+    profiles = [];
   }
 
   void toggleEditMode() {
@@ -53,6 +55,43 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  // Function to pick an image from camera or gallery
+  Future<void> _pickImage() async {
+    final picker = ImagePicker();
+    final pickedFile = await showDialog<File>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Select Image Source'),
+        actions: [
+          TextButton(
+            onPressed: () async {
+              final image = await picker.pickImage(source: ImageSource.camera);
+              if (image != null) {
+                Navigator.pop(context, File(image.path));
+              }
+            },
+            child: const Text('Camera'),
+          ),
+          TextButton(
+            onPressed: () async {
+              final image = await picker.pickImage(source: ImageSource.gallery);
+              if (image != null) {
+                Navigator.pop(context, File(image.path));
+              }
+            },
+            child: const Text('Gallery'),
+          ),
+        ],
+      ),
+    );
+    
+    if (pickedFile != null) {
+      setState(() {
+        _profileImage = pickedFile;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,10 +101,24 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const CircleAvatar(
-                radius: 50,
-                backgroundImage: AssetImage('images/profile_picture.jpg'),
-              ),
+              // Show the profile picture change option only if editing mode is enabled
+              if (isEditing)
+                GestureDetector(
+                  onTap: _pickImage, // Trigger image selection when tapped
+                  child: CircleAvatar(
+                    radius: 50,
+                    backgroundImage: _profileImage == null
+                        ? const AssetImage('images/profile_picture.jpg')
+                        : FileImage(_profileImage!) as ImageProvider,
+                  ),
+                )
+              else
+                CircleAvatar(
+                  radius: 50,
+                  backgroundImage: _profileImage == null
+                      ? const AssetImage('images/profile_picture.jpg')
+                      : FileImage(_profileImage!) as ImageProvider,
+                ),
               const SizedBox(height: 10),
               isEditing
                   ? TextField(
@@ -75,8 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       style: TextStyle(
                           color: isDarkMode
                               ? Colors.white
-                              : Colors
-                                  .black), // Change text color based on mode
+                              : Colors.black),
                     )
                   : Text(
                       name,
@@ -86,8 +138,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           fontWeight: FontWeight.bold,
                           color: isDarkMode
                               ? Colors.teal
-                              : Colors
-                                  .white), // Change text color based on mode
+                              : Colors.white),
                     ),
               const SizedBox(height: 10),
               isEditing
@@ -98,8 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       style: TextStyle(
                           color: isDarkMode
                               ? Colors.white
-                              : Colors
-                                  .black), // Change text color based on mode
+                              : Colors.black),
                     )
                   : Text(
                       role,
@@ -159,8 +209,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text('Dark Mode',
-                      style: TextStyle(
-                          color: Colors.white)), // Change color based on mode
+                      style: TextStyle(color: Colors.white)),
                   Switch(
                     value: isDarkMode,
                     onChanged: (value) {
@@ -182,8 +231,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         profiles: profiles,
                         onProfilesUpdated: (updatedProfiles) {
                           setState(() {
-                            profiles =
-                                updatedProfiles; // Update profiles with new data
+                            profiles = updatedProfiles;
                           });
                         },
                         isDarkMode: isDarkMode,
