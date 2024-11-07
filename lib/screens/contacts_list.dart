@@ -4,7 +4,7 @@ import 'package:mi_card/widgets/profile_card.dart';
 import 'package:mi_card/widgets/search_bar.dart';
 import 'package:mi_card/dialogs/add_profile_dialog.dart';
 import 'package:mi_card/dialogs/edit_profile_dialog.dart';
-import 'dart:math';
+import 'package:mi_card/utils/uitls.dart';
 
 class ContactsListScreen extends StatefulWidget {
   final List<ProfileData> profiles;
@@ -117,7 +117,8 @@ class _ContactsListScreenState extends State<ContactsListScreen> {
                         itemBuilder: (context, index) {
                           if (searchQuery.isNotEmpty) {
                             final profile = sortedProfiles[index];
-                            final isMatch = _isMatch(profile);
+                            final isMatch = isMatchProfile(
+                                profile, searchQuery, selectedFilter);
                             if (!isMatch) return Container();
                           }
 
@@ -130,7 +131,8 @@ class _ContactsListScreenState extends State<ContactsListScreen> {
                                   .indexOf(sortedProfiles[index]);
 
                               setState(() {
-                                widget.profiles.removeAt(recentlyDeletedProfileIndex!);
+                                widget.profiles
+                                    .removeAt(recentlyDeletedProfileIndex!);
                                 _updateSortedProfiles();
                               });
                               widget.onProfilesUpdated(widget.profiles);
@@ -163,7 +165,8 @@ class _ContactsListScreenState extends State<ContactsListScreen> {
                                               recentlyDeletedProfile!);
                                           _updateSortedProfiles();
                                         });
-                                        widget.onProfilesUpdated(widget.profiles);
+                                        widget
+                                            .onProfilesUpdated(widget.profiles);
                                       }
                                     },
                                   ),
@@ -173,8 +176,10 @@ class _ContactsListScreenState extends State<ContactsListScreen> {
                             background: Container(
                               color: Colors.red,
                               alignment: Alignment.centerRight,
-                              padding: const EdgeInsets.symmetric(horizontal: 20),
-                              child: const Icon(Icons.delete, color: Colors.white),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 20),
+                              child:
+                                  const Icon(Icons.delete, color: Colors.white),
                             ),
                             child: ProfileCard(
                               profile: sortedProfiles[index],
@@ -188,7 +193,8 @@ class _ContactsListScreenState extends State<ContactsListScreen> {
                                     .indexOf(sortedProfiles[index]);
                                 setState(() {
                                   widget.profiles[originalIndex].isFavorite =
-                                      !widget.profiles[originalIndex].isFavorite;
+                                      !widget
+                                          .profiles[originalIndex].isFavorite;
                                   _updateSortedProfiles();
                                 });
                                 widget.onProfilesUpdated(widget.profiles);
@@ -213,56 +219,21 @@ class _ContactsListScreenState extends State<ContactsListScreen> {
     );
   }
 
-  bool _isMatch(ProfileData profile) {
-    switch (selectedFilter) {
-      case 'Name':
-        return profile.name.toLowerCase().contains(searchQuery.toLowerCase());
-      case 'Role':
-        return profile.role.toLowerCase().contains(searchQuery.toLowerCase());
-      case 'Phone':
-        return profile.phone.toLowerCase().contains(searchQuery.toLowerCase());
-      case 'Email':
-        return profile.email.toLowerCase().contains(searchQuery.toLowerCase());
-      default:
-        return false;
-    }
-  }
-
-  Color _getRandomColor() {
-    final List<Color> presetColors = [
-      Colors.blueAccent,
-      Colors.redAccent,
-      Colors.greenAccent,
-      Colors.purpleAccent,
-      Colors.orangeAccent,
-      Colors.yellowAccent,
-      Colors.tealAccent,
-      Colors.pinkAccent,
-      Colors.lightBlue,
-      Colors.deepOrange,
-      Colors.indigo,
-      Colors.amber,
-    ];
-
-    final Random random = Random();
-    return presetColors[random.nextInt(presetColors.length)];
-  }
-
   void addNewProfile() {
-  showDialog(
-    context: context,
-    builder: (context) => AddProfileDialog(
-      onProfileAdded: (profile) {
-        setState(() {
-          widget.profiles.add(profile);
-          _updateSortedProfiles();
-        });
-        widget.onProfilesUpdated(widget.profiles);
-      },
-      getRandomColor: _getRandomColor,
-    ),
-  );
-}
+    showDialog(
+      context: context,
+      builder: (context) => AddProfileDialog(
+        onProfileAdded: (profile) {
+          setState(() {
+            widget.profiles.add(profile);
+            _updateSortedProfiles();
+          });
+          widget.onProfilesUpdated(widget.profiles);
+        },
+        getRandomColor: getRandomColor,
+      ),
+    );
+  }
 
   void editProfile(BuildContext context, int index) {
     final profile = widget.profiles[index];
