@@ -1,12 +1,19 @@
 lib 
+   dialogs
+      add_profile_dialog.dart
+      edit_profile_dialog.dart
    models
-    profile_data.dart  
+      profile_data.dart  
 
    screens
-    home_screen.dart
-    contacts_list.dart
+      home_screen.dart
+      contacts_list.dart
+
+   utils
+      utils.dart
 
    widgets 
-    editable_card.dart
-    profile_card.dart
-    search_bar.dart
+      editable_card.dart
+      profile_card.dart
+      search_bar.dart
+   main.dart
