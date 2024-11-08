@@ -6,7 +6,7 @@ class CustomSearchBar extends StatelessWidget {
   final List<String> filterOptions;
   final ValueChanged<String> onSearchChanged;
   final ValueChanged<String?> onFilterChanged;
-  final bool isDarkMode; // Added isDarkMode parameter
+  final bool isDarkMode; 
 
   const CustomSearchBar({
     super.key,
@@ -15,7 +15,7 @@ class CustomSearchBar extends StatelessWidget {
     required this.filterOptions,
     required this.onSearchChanged,
     required this.onFilterChanged,
-    required this.isDarkMode, // Initialize in constructor
+    required this.isDarkMode,
   });
 
   @override
@@ -24,7 +24,6 @@ class CustomSearchBar extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Row(
         children: [
-          // Dropdown for filter options with dark mode styling
           DropdownButton<String>(
             value: selectedFilter,
             items: filterOptions
@@ -43,7 +42,6 @@ class CustomSearchBar extends StatelessWidget {
             iconEnabledColor: isDarkMode ? Colors.white : Colors.black,
           ),
           const SizedBox(width: 8),
-          // TextField for search input with dark mode styling
           Expanded(
             child: TextField(
               onChanged: onSearchChanged,

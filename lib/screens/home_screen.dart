@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart'; // Import image_picker package
+import 'package:image_picker/image_picker.dart'; 
 import 'package:mi_card/screens/contacts_list.dart';
 import 'package:mi_card/widgets/editable_card.dart';
 import 'package:mi_card/models/profile_data.dart';
@@ -14,13 +14,13 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   bool isEditing = false;
-  bool isDarkMode = false; // State variable for dark mode
+  bool isDarkMode = false; 
   String name = 'Guru Raghav';
   String role = 'Music Producer';
   String phone = '+91 82174 70373';
   String email = 'master.guru.raghav@gmail.com';
   String discord = 'guru_raghav_';
-  File? _profileImage; // Add a variable to store the profile image
+  File? _profileImage; 
 
   final TextEditingController nameController = TextEditingController();
   final TextEditingController roleController = TextEditingController();
@@ -55,7 +55,6 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  // Function to pick an image from camera or gallery
   Future<void> _pickImage() async {
     final picker = ImagePicker();
     final pickedFile = await showDialog<File>(
@@ -101,10 +100,9 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Show the profile picture change option only if editing mode is enabled
               if (isEditing)
                 GestureDetector(
-                  onTap: _pickImage, // Trigger image selection when tapped
+                  onTap: _pickImage, 
                   child: CircleAvatar(
                     radius: 50,
                     backgroundImage: _profileImage == null
@@ -214,7 +212,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     value: isDarkMode,
                     onChanged: (value) {
                       setState(() {
-                        isDarkMode = value; // Toggle dark mode
+                        isDarkMode = value; 
                       });
                     },
                     activeColor: Colors.tealAccent,

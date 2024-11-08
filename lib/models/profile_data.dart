@@ -6,7 +6,7 @@ class ProfileData {
   String phone;
   String email;
   Color color;
-  bool isFavorite; // Added this line
+  bool isFavorite; 
 
   ProfileData({
     required this.name,
@@ -14,6 +14,6 @@ class ProfileData {
     required this.phone,
     required this.email,
     required this.color,
-    this.isFavorite = false, // Default value for favorites
+    this.isFavorite = false, 
   });
 }

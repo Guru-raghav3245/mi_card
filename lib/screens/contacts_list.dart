@@ -48,12 +48,11 @@ class _ContactsListScreenState extends State<ContactsListScreen> {
 
   @override
   Widget build(BuildContext context) {
-    _updateSortedProfiles(); // Ensure the sorted list is up to date
+    _updateSortedProfiles(); 
     return Scaffold(
       backgroundColor: widget.isDarkMode ? Colors.black : Colors.white,
       body: Column(
         children: [
-          // Custom header with back button and search bar
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
@@ -64,7 +63,7 @@ class _ContactsListScreenState extends State<ContactsListScreen> {
                     color: widget.isDarkMode ? Colors.white : Colors.black,
                   ),
                   onPressed: () {
-                    Navigator.pop(context); // Go back to the previous screen
+                    Navigator.pop(context);
                   },
                 ),
                 Expanded(
@@ -88,7 +87,6 @@ class _ContactsListScreenState extends State<ContactsListScreen> {
               ],
             ),
           ),
-          // Profile card container
           Expanded(
             child: Container(
               padding: const EdgeInsets.all(10),
@@ -241,7 +239,7 @@ class _ContactsListScreenState extends State<ContactsListScreen> {
       context: context,
       builder: (context) => EditProfileDialog(
         profile: profile,
-        profiles: widget.profiles, // Pass the profiles list
+        profiles: widget.profiles, 
         onProfilesUpdated: widget.onProfilesUpdated,
       ),
     );

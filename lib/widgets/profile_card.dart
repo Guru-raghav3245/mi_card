@@ -26,7 +26,6 @@ class ProfileCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Name and Role Section
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -41,16 +40,15 @@ class ProfileCard extends StatelessWidget {
                   profile.role,
                   style: const TextStyle(
                     fontSize: 14.0,
-                    color: Colors.grey, // Subtle color for the role
+                    color: Colors.grey, 
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 10), // Space between role and contact info
-            // Contact Information and Action Buttons
+            const SizedBox(height: 10), 
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center, // Align center
+              crossAxisAlignment: CrossAxisAlignment.center, 
               children: [
                 Expanded(
                   child: Column(
