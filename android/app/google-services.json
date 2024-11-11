@@ -7,9 +7,47 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:1028948951799:android:94699bf5b1c714af07c9f2",
+        "android_client_info": {
+          "package_name": "com.example.mi2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvKQotlIzB_d6hhDxLumkzr_Zsd9NHWn0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:1028948951799:android:9dabd48adfb7e80807c9f2",
         "android_client_info": {
           "package_name": "com.example.mi_c"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvKQotlIzB_d6hhDxLumkzr_Zsd9NHWn0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1028948951799:android:abbb4add43b045d507c9f2",
+        "android_client_info": {
+          "package_name": "com.example.mi_card2"
         }
       },
       "oauth_client": [],

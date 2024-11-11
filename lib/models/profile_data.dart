@@ -17,3 +17,4 @@ class ProfileData {
     this.isFavorite = false, 
   });
 }
+
