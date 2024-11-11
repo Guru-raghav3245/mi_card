@@ -10,6 +10,9 @@ It is a replacement for your default conacts app, but also helping you to add ot
 ### I am always looking for improvements, so if you have any idea on how to take this project further, ping me on master.guru.raghav@gmail.com, or just upload an issue.
 
 ## Functionalities
+   ### Firebase
+      * Every info in home screen is updated in firebase
+      * All the profiles, along with all the emails, roles, names, and phone numbers are stored.
    ### Profile Management
       * Display Digital Profile Card: Show a digital card for each contact with key details.
       * Edit Profile Picture: You can choose from the gallery or use the camera to take a selfie.
@@ -18,13 +21,16 @@ It is a replacement for your default conacts app, but also helping you to add ot
       * Edit Profile Cards: Update information on existing profile cards.
       * Delete Profile Cards: Remove a profile card with an option to undo the deletion.
    ### User Experience
+      * Users are able to create accounts using an email and password
+      * Users are able to log in using the email and passoword provided when creating the account.
       * Favorite Profiles: Mark profiles as favorites for quick access.
       * Light and Dark Mode: Toggle between light and dark themes.
       * Search Bar: Easily locate profile cards using a search function.
    ### Data Integrity
       * Validation on Add/Edit: Ensure fields aren’t empty when creating or editing profiles.
       * Profile Details
-      * Profile Information Display: Each card displays contact’s name, role, email, and phone number.
+      * Profile Information Display: Each card displays contact’s name, role, email, and phone number.<img width="501" alt="Screenshot 2024-11-11 at 17 23 14" src="https://github.com/user-attachments/assets/bce23b19-5d0c-4025-bf82-4a1ad1abd8b0">
+
 
 This project is being worked on currenty, and a lot of updates are coming.
 <img width="500" alt="Screenshot 2024-11-05 at 13 35 14" src="https://github.com/user-attachments/assets/25abade7-56e6-494f-88a0-751712acb9fc">
