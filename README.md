@@ -29,10 +29,11 @@ It is a replacement for your default conacts app, but also helping you to add ot
    ### Data Integrity
       * Validation on Add/Edit: Ensure fields aren’t empty when creating or editing profiles.
       * Profile Details
-      * Profile Information Display: Each card displays contact’s name, role, email, and phone number.<img width="501" alt="Screenshot 2024-11-11 at 17 23 14" src="https://github.com/user-attachments/assets/bce23b19-5d0c-4025-bf82-4a1ad1abd8b0">
-
-
+      * Profile Information Display: Each card displays contact’s name, role, email, and phone number.
+      
 This project is being worked on currenty, and a lot of updates are coming.
+      
+<img width="501" alt="Screenshot 2024-11-11 at 17 23 14" src="https://github.com/user-attachments/assets/bce23b19-5d0c-4025-bf82-4a1ad1abd8b0">
 <img width="500" alt="Screenshot 2024-11-05 at 13 35 14" src="https://github.com/user-attachments/assets/25abade7-56e6-494f-88a0-751712acb9fc">
 <img width="501" alt="Screenshot 2024-11-05 at 13 34 55" src="https://github.com/user-attachments/assets/ab1252db-7ce2-4d36-ac9c-529c02127418">
 <img width="502" alt="Screenshot 2024-11-05 at 13 33 46" src="https://github.com/user-attachments/assets/944a405c-12f0-4a5e-9c26-b14aa3333559">
