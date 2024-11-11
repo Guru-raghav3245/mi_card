@@ -8,7 +8,8 @@ It is a replacement for your default conacts app, but also helping you to add ot
 
 ### I am always looking for improvements, so if you have any idea on how to take this project further, ping me on master.guru.raghav@gmail.com, or just upload an issue.
 
-##Functionalities
+## Functionalities
+
    ### 1. Profile Management
       * Display Digital Profile Card: Show a digital card with key contact details (name, role, email, phone number).
       * Editable Profile Card: Modify contact information as needed.
