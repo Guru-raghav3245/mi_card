@@ -5,6 +5,8 @@ import 'package:mi_card/widgets/search_bar.dart';
 import 'package:mi_card/dialogs/add_profile_dialog.dart';
 import 'package:mi_card/dialogs/edit_profile_dialog.dart';
 import 'package:mi_card/utils/uitls.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class ContactsListScreen extends StatefulWidget {
   final List<ProfileData> profiles;
@@ -31,12 +33,6 @@ class _ContactsListScreenState extends State<ContactsListScreen> {
   String selectedFilter = 'Name';
   final List<String> filterOptions = ['Name', 'Role', 'Phone', 'Email'];
 
-  @override
-  void initState() {
-    super.initState();
-    _updateSortedProfiles();
-  }
-
   void _updateSortedProfiles() {
     sortedProfiles = List<ProfileData>.from(widget.profiles);
     sortedProfiles.sort((a, b) {
@@ -46,9 +42,75 @@ class _ContactsListScreenState extends State<ContactsListScreen> {
     });
   }
 
+  Future<void> saveProfilesToFirebase() async {
+    final userId = FirebaseAuth.instance.currentUser?.uid;
+    if (userId != null) {
+      final contactsRef = FirebaseFirestore.instance
+          .collection('users')
+          .doc(userId)
+          .collection('contacts');
+
+      // Clear existing contacts
+      final existingContacts = await contactsRef.get();
+      for (var doc in existingContacts.docs) {
+        await doc.reference.delete();
+      }
+
+      // Add all current contacts
+      for (var profile in widget.profiles) {
+        await contactsRef.add({
+          'name': profile.name,
+          'role': profile.role,
+          'phone': profile.phone,
+          'email': profile.email,
+          'color': profile.color.value,
+          'isFavorite': profile.isFavorite,
+        });
+      }
+    }
+  }
+
+  // Add this function to load profiles from Firebase
+  Future<void> loadProfilesFromFirebase() async {
+    final userId = FirebaseAuth.instance.currentUser?.uid;
+    if (userId != null) {
+      final contactsRef = FirebaseFirestore.instance
+          .collection('users')
+          .doc(userId)
+          .collection('contacts');
+
+      final querySnapshot = await contactsRef.get();
+      final loadedProfiles = querySnapshot.docs.map((doc) {
+        final data = doc.data();
+        return ProfileData(
+          name: data['name'] ?? '',
+          role: data['role'] ?? '',
+          phone: data['phone'] ?? '',
+          email: data['email'] ?? '',
+          color: Color(data['color'] ?? 0xFF000000),
+          isFavorite: data['isFavorite'] ?? false,
+        );
+      }).toList();
+
+      setState(() {
+        widget.profiles.clear();
+        widget.profiles.addAll(loadedProfiles);
+        _updateSortedProfiles();
+      });
+      widget.onProfilesUpdated(widget.profiles);
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    loadProfilesFromFirebase();
+    _updateSortedProfiles();
+  }
+
   @override
   Widget build(BuildContext context) {
-    _updateSortedProfiles(); 
+    _updateSortedProfiles();
     return Scaffold(
       backgroundColor: widget.isDarkMode ? Colors.black : Colors.white,
       body: Column(
@@ -134,6 +196,7 @@ class _ContactsListScreenState extends State<ContactsListScreen> {
                                 _updateSortedProfiles();
                               });
                               widget.onProfilesUpdated(widget.profiles);
+                              saveProfilesToFirebase(); // Add this line
 
                               ScaffoldMessenger.of(context).clearSnackBars();
                               ScaffoldMessenger.of(context).showSnackBar(
@@ -165,6 +228,7 @@ class _ContactsListScreenState extends State<ContactsListScreen> {
                                         });
                                         widget
                                             .onProfilesUpdated(widget.profiles);
+                                        saveProfilesToFirebase(); // Add this line
                                       }
                                     },
                                   ),
@@ -227,6 +291,7 @@ class _ContactsListScreenState extends State<ContactsListScreen> {
             _updateSortedProfiles();
           });
           widget.onProfilesUpdated(widget.profiles);
+          saveProfilesToFirebase(); // Add this line
         },
         getRandomColor: getRandomColor,
       ),
@@ -239,8 +304,11 @@ class _ContactsListScreenState extends State<ContactsListScreen> {
       context: context,
       builder: (context) => EditProfileDialog(
         profile: profile,
-        profiles: widget.profiles, 
-        onProfilesUpdated: widget.onProfilesUpdated,
+        profiles: widget.profiles,
+        onProfilesUpdated: (updatedProfiles) {
+          widget.onProfilesUpdated(updatedProfiles);
+          saveProfilesToFirebase(); // Add this line
+        },
       ),
     );
   }

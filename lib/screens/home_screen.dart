@@ -6,6 +6,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mi_card/dialogs/logout_dialog.dart';
 
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
