@@ -1,6 +1,5 @@
 # mi_card
 
-This is a side project for me. 
 This project is basically a personal digital business card
 It is a replacement for your default conacts app, but also helping you to add other info about the person you might forget.
 
@@ -10,23 +9,35 @@ It is a replacement for your default conacts app, but also helping you to add ot
 ### I am always looking for improvements, so if you have any idea on how to take this project further, ping me on master.guru.raghav@gmail.com, or just upload an issue.
 
 ## Functionalities
-   ### Profile Management
-      * Display Digital Profile Card: Show a digital card for each contact with key details.
-      * Edit Profile Picture: You can choose from the gallery or use the camera to take a selfie.
-      * Editable Profile Card: Modify contact information as needed.
-      * Add New Profile Cards: Add a new profile card for each contact.
-      * Edit Profile Cards: Update information on existing profile cards.
-      * Delete Profile Cards: Remove a profile card with an option to undo the deletion.
-   ### User Experience
-      * Favorite Profiles: Mark profiles as favorites for quick access.
-      * Light and Dark Mode: Toggle between light and dark themes.
-      * Search Bar: Easily locate profile cards using a search function.
-   ### Data Integrity
-      * Validation on Add/Edit: Ensure fields aren’t empty when creating or editing profiles.
-      * Profile Details
-      * Profile Information Display: Each card displays contact’s name, role, email, and phone number.
 
+   ### 1. Profile Management
+      * Display Digital Profile Card: Show a digital card with key contact details (name, role, email, phone number).
+      * Editable Profile Card: Modify contact information as needed.
+      * Add New Profile Cards: Create a new profile card for each contact.
+      * Edit Existing Profile Cards: Update details on existing profiles.
+      * Delete Profile Cards: Remove a profile card with an option to undo the deletion.
+      * Edit Profile Picture: Choose a picture from the gallery or take a selfie with the camera.
+      * Favorite Profiles: Mark profiles as favorites for easy access.
+      
+   ### 2. User Accounts & Authentication
+      * Account Creation: Users can create accounts using email and password.
+      * Account Login: Users can log in using the email and password they provided during account creation.
+      
+   ### 3. User Interface & Experience
+      * Light and Dark Mode: Toggle between light and dark themes for a personalized UI.
+      * Search Bar: Locate profile cards easily using a search function.
+      
+   ### 4. Data Integrity & Security
+      * Validation on Add/Edit: Ensure fields are not left empty when creating or editing profiles.
+      * Profile Information Storage: Store profiles securely, including emails, roles, names, and phone numbers.
+      
+   ### 5. Firebase Integration
+      * Sync Information: Automatically update all home screen details to Firebase.
+      * Profile Storage: Store all profiles with associated data (email, role, name, phone number) in Firebase.
+      
 This project is being worked on currenty, and a lot of updates are coming.
+      
+<img width="501" alt="Screenshot 2024-11-11 at 17 23 14" src="https://github.com/user-attachments/assets/bce23b19-5d0c-4025-bf82-4a1ad1abd8b0">
 <img width="500" alt="Screenshot 2024-11-05 at 13 35 14" src="https://github.com/user-attachments/assets/25abade7-56e6-494f-88a0-751712acb9fc">
 <img width="501" alt="Screenshot 2024-11-05 at 13 34 55" src="https://github.com/user-attachments/assets/ab1252db-7ce2-4d36-ac9c-529c02127418">
 <img width="502" alt="Screenshot 2024-11-05 at 13 33 46" src="https://github.com/user-attachments/assets/944a405c-12f0-4a5e-9c26-b14aa3333559">
