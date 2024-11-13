@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mi_card/models/profile_data.dart';
+import 'color_picker.dart'; // Import the color palette
 
 class EditProfileDialog extends StatefulWidget {
   final ProfileData profile;
@@ -32,6 +33,36 @@ class _EditProfileDialogState extends State<EditProfileDialog> {
     _emailController.text = widget.profile.email;
   }
 
+  // Method to show the color picker dialog
+  void _showColorPickerDialog() async {
+  // Remove selectedColor, no longer needed.
+
+  final Color? color = await showDialog<Color>(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: const Text('Select a Color'),
+        content: ColorPalette(
+          onColorSelected: (Color selectedColor) {
+            // Directly update the profile's color when a color is selected
+            widget.profile.color = selectedColor;
+            Navigator.pop(context, selectedColor); // Close the dialog
+          },
+        ),
+      );
+    },
+  );
+
+  // If a color was selected, update the profile's color
+  if (color != null) {
+    setState(() {
+      widget.profile.color = color;  // Ensure the profile color is updated
+    });
+    widget.onProfilesUpdated(widget.profiles);  // Notify that profiles have been updated
+  }
+}
+
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -58,6 +89,10 @@ class _EditProfileDialogState extends State<EditProfileDialog> {
         ],
       ),
       actions: [
+        TextButton(
+          onPressed: _showColorPickerDialog, // Trigger the color picker dialog
+          child: const Text('Pick Color'),
+        ),
         TextButton(
           onPressed: () {
             setState(() {
