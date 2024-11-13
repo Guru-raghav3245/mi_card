@@ -6,6 +6,7 @@ class EditableCard extends StatelessWidget {
   final Color iconColor;
   final TextEditingController controller;
   final bool isEditing;
+  final bool isDarkMode; // New parameter
   final Function(String) onChanged;
 
   const EditableCard({
@@ -16,11 +17,13 @@ class EditableCard extends StatelessWidget {
     required this.controller,
     required this.isEditing,
     required this.onChanged,
+    required this.isDarkMode, // Initialize this parameter
   });
 
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: isDarkMode ? Colors.white : Colors.black, // Conditional color
       margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 25),
       child: ListTile(
         leading: Icon(icon, color: iconColor),
@@ -28,12 +31,16 @@ class EditableCard extends StatelessWidget {
             ? TextField(
                 controller: controller,
                 onChanged: onChanged,
-                decoration: InputDecoration(hintText: info),
+                decoration: InputDecoration(
+                  hintText: info,
+                  hintStyle: TextStyle(color: isDarkMode ? Colors.black : Colors.white),
+                ),
+                style: TextStyle(color: isDarkMode ? Colors.black : Colors.white),
               )
             : Text(
                 info,
                 style: TextStyle(
-                  color: Colors.teal.shade900,
+                  color: isDarkMode ? Colors.black : Colors.white,
                   fontSize: 20,
                   fontFamily: 'Dosis',
                 ),

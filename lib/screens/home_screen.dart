@@ -46,43 +46,40 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<void> _loadUserData() async {
-    final userId = FirebaseAuth.instance.currentUser?.uid;
-    if (userId != null) {
-      final doc = await FirebaseFirestore.instance
-          .collection('users')
-          .doc(userId)
-          .get();
+  final userId = FirebaseAuth.instance.currentUser?.uid;
+  if (userId != null) {
+    final doc = await FirebaseFirestore.instance.collection('users').doc(userId).get();
 
-      if (doc.exists) {
-        setState(() {
-          name = doc['username'] ?? name;
-          role = doc['role'] ?? role;
-          phone = doc['phone'] ?? phone;
-          email = doc['email'] ?? email;
-          discord = doc['discord'] ?? discord;
+    if (doc.exists) {
+      setState(() {
+        name = doc['username'] ?? name;
+        role = doc['role'] ?? role;
+        phone = doc['phone'] ?? phone;
+        email = doc['email'] ?? email;
+        discord = doc['discord'] ?? discord;
 
-          nameController.text = name;
-          roleController.text = role;
-          phoneController.text = phone;
-          emailController.text = email;
-          discordController.text = discord;
-        });
-      }
-    }
-  }
-
-  Future<void> _updateUserDetails() async {
-    final userId = FirebaseAuth.instance.currentUser?.uid;
-    if (userId != null) {
-      await FirebaseFirestore.instance.collection('users').doc(userId).set({
-        'username': name,
-        'role': role,
-        'phone': phone,
-        'email': email,
-        'discord': discord,
+        // Load saved color or default to teal
+        selectedColor = Color(doc['color'] ?? Colors.teal.value);
       });
     }
   }
+}
+
+
+  Future<void> _updateUserDetails() async {
+  final userId = FirebaseAuth.instance.currentUser?.uid;
+  if (userId != null) {
+    await FirebaseFirestore.instance.collection('users').doc(userId).set({
+      'username': name,
+      'role': role,
+      'phone': phone,
+      'email': email,
+      'discord': discord,
+      'color': selectedColor.value, // Save color as integer
+    });
+  }
+}
+
 
   void toggleEditMode() {
     setState(() {
@@ -180,6 +177,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     iconColor: selectedColor,
                     controller: phoneController,
                     isEditing: isEditing,
+                    isDarkMode: isDarkMode,
                     onChanged: (value) {
                       setState(() {
                         phone = value;
@@ -192,6 +190,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     iconColor: selectedColor,
                     controller: emailController,
                     isEditing: isEditing,
+                    isDarkMode: isDarkMode,
                     onChanged: (value) {
                       setState(() {
                         email = value;
@@ -199,6 +198,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                   ),
                   EditableCard(
+                    isDarkMode: isDarkMode,
                     icon: Icons.discord,
                     info: discord,
                     iconColor: Colors.purple,
@@ -271,9 +271,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor:
-                                isDarkMode ? Colors.white : selectedColor,
-                            foregroundColor:
                                 isDarkMode ? selectedColor : Colors.white,
+                            foregroundColor:
+                                isDarkMode ? Colors.white : selectedColor,
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 30, vertical: 15),
                             shape: RoundedRectangleBorder(
@@ -309,10 +309,10 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: toggleEditMode,
-        backgroundColor: selectedColor,
+        backgroundColor: isDarkMode ? selectedColor : Colors.black,
         child: Icon(
           isEditing ? Icons.check : Icons.edit,
-          color: isDarkMode ? Colors.black : Colors.white,
+          color: isDarkMode ? Colors.white : selectedColor,
         ),
       ),
     );

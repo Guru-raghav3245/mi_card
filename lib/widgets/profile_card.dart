@@ -7,11 +7,11 @@ class ProfileCard extends StatelessWidget {
   final VoidCallback onToggleFavorite;
 
   const ProfileCard({
-    Key? key,
+    super.key,
     required this.profile,
     required this.onEdit,
     required this.onToggleFavorite,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
