@@ -71,35 +71,34 @@ class _ContactsListScreenState extends State<ContactsListScreen> {
   }
 
   Future<void> loadProfilesFromFirebase() async {
-  final userId = FirebaseAuth.instance.currentUser?.uid;
-  if (userId != null) {
-    final contactsRef = FirebaseFirestore.instance
-        .collection('users')
-        .doc(userId)
-        .collection('contacts');
+    final userId = FirebaseAuth.instance.currentUser?.uid;
+    if (userId != null) {
+      final contactsRef = FirebaseFirestore.instance
+          .collection('users')
+          .doc(userId)
+          .collection('contacts');
 
-    final querySnapshot = await contactsRef.get();
-    final loadedProfiles = querySnapshot.docs.map((doc) {
-      final data = doc.data();
-      return ProfileData(
-        name: data['name'] ?? '',
-        role: data['role'] ?? '',
-        phone: data['phone'] ?? '',
-        email: data['email'] ?? '',
-        color: Color(data['color'] ?? 0xFF000000),
-        isFavorite: data['isFavorite'] ?? false,
-      );
-    }).toList();
+      final querySnapshot = await contactsRef.get();
+      final loadedProfiles = querySnapshot.docs.map((doc) {
+        final data = doc.data();
+        return ProfileData(
+          name: data['name'] ?? '',
+          role: data['role'] ?? '',
+          phone: data['phone'] ?? '',
+          email: data['email'] ?? '',
+          color: Color(data['color'] ?? 0xFF000000),
+          isFavorite: data['isFavorite'] ?? false,
+        );
+      }).toList();
 
-    setState(() {
-      widget.profiles.clear();
-      widget.profiles.addAll(loadedProfiles);
-      _updateSortedProfiles();
-    });
-    widget.onProfilesUpdated(widget.profiles);
+      setState(() {
+        widget.profiles.clear();
+        widget.profiles.addAll(loadedProfiles);
+        _updateSortedProfiles();
+      });
+      widget.onProfilesUpdated(widget.profiles);
+    }
   }
-}
-
 
   @override
   void initState() {
@@ -282,45 +281,43 @@ class _ContactsListScreenState extends State<ContactsListScreen> {
   }
 
   void addNewProfile() {
-  showDialog(
-    context: context,
-    builder: (context) => AddProfileDialog(
-      onProfileAdded: (profile) async {
-        // Add the new profile to the local list
-        setState(() {
-          widget.profiles.add(profile);
-          _updateSortedProfiles();
-        });
-        
-        // Save the updated list to Firebase
-        await saveProfilesToFirebase();
-        
-        // Reload the profiles from Firebase to ensure the UI updates with any changes
-        await loadProfilesFromFirebase();
-      },
-      getRandomColor: getRandomColor,
-    ),
-  );
-}
+    showDialog(
+      context: context,
+      builder: (context) => AddProfileDialog(
+        onProfileAdded: (profile) async {
+          // Add the new profile to the local list
+          setState(() {
+            widget.profiles.add(profile);
+            _updateSortedProfiles();
+          });
 
+          // Save the updated list to Firebase
+          await saveProfilesToFirebase();
+
+          // Reload the profiles from Firebase to ensure the UI updates with any changes
+          await loadProfilesFromFirebase();
+        },
+        getRandomColor: getRandomColor,
+      ),
+    );
+  }
 
   void editProfile(BuildContext context, int index) {
-  final profile = widget.profiles[index];
-  showDialog(
-    context: context,
-    builder: (context) => EditProfileDialog(
-      profile: profile,
-      profiles: widget.profiles,
-      onProfilesUpdated: (updatedProfiles) async {
-        // Update the list and Firebase
-        widget.onProfilesUpdated(updatedProfiles);
-        await saveProfilesToFirebase();
-        
-        // Reload profiles from Firebase and refresh UI
-        await loadProfilesFromFirebase();
-      },
-    ),
-  );
-}
+    final profile = widget.profiles[index];
+    showDialog(
+      context: context,
+      builder: (context) => EditProfileDialog(
+        profile: profile,
+        profiles: widget.profiles,
+        onProfilesUpdated: (updatedProfiles) async {
+          // Update the list and Firebase
+          widget.onProfilesUpdated(updatedProfiles);
+          await saveProfilesToFirebase();
 
+          // Reload profiles from Firebase and refresh UI
+          await loadProfilesFromFirebase();
+        },
+      ),
+    );
+  }
 }
