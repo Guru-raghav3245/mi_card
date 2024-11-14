@@ -32,9 +32,6 @@ flutter:
 
   uses-material-design: true
 
-  assets:
-    - images/profile_picture.jpg
-
   fonts:
     - family: Pacifico
       fonts:

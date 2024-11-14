@@ -6,6 +6,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mi_card/dialogs/logout_dialog.dart';
 import 'package:mi_card/dialogs/color_picker.dart';
+import 'package:mi_card/widgets/social_media_icons.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -30,6 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController discordController = TextEditingController();
 
   Color selectedColor = Colors.teal;
+  IconData selectedSocialIcon = Icons.discord;
 
   List<ProfileData> profiles = [];
 
@@ -46,40 +48,47 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<void> _loadUserData() async {
-  final userId = FirebaseAuth.instance.currentUser?.uid;
-  if (userId != null) {
-    final doc = await FirebaseFirestore.instance.collection('users').doc(userId).get();
+    final userId = FirebaseAuth.instance.currentUser?.uid;
+    if (userId != null) {
+      final doc = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(userId)
+          .get();
 
-    if (doc.exists) {
-      setState(() {
-        name = doc['username'] ?? name;
-        role = doc['role'] ?? role;
-        phone = doc['phone'] ?? phone;
-        email = doc['email'] ?? email;
-        discord = doc['discord'] ?? discord;
+      if (doc.exists) {
+        setState(() {
+          name = doc['username'] ?? name;
+          role = doc['role'] ?? role;
+          phone = doc['phone'] ?? phone;
+          email = doc['email'] ?? email;
+          discord = doc['discord'] ?? discord;
 
-        // Load saved color or default to teal
-        selectedColor = Color(doc['color'] ?? Colors.teal.value);
+          selectedSocialIcon = IconData(
+            doc['socialIconCode'] ?? Icons.discord.codePoint,
+            fontFamily: 'MaterialIcons',
+          );
+
+          // Load saved color or default to teal
+          selectedColor = Color(doc['color'] ?? Colors.teal.value);
+        });
+      }
+    }
+  }
+
+  Future<void> _updateUserDetails() async {
+    final userId = FirebaseAuth.instance.currentUser?.uid;
+    if (userId != null) {
+      await FirebaseFirestore.instance.collection('users').doc(userId).set({
+        'username': name,
+        'role': role,
+        'phone': phone,
+        'email': email,
+        'discord': discord,
+        'color': selectedColor.value,
+        'socialIconCode': selectedSocialIcon.codePoint, // Add this line
       });
     }
   }
-}
-
-
-  Future<void> _updateUserDetails() async {
-  final userId = FirebaseAuth.instance.currentUser?.uid;
-  if (userId != null) {
-    await FirebaseFirestore.instance.collection('users').doc(userId).set({
-      'username': name,
-      'role': role,
-      'phone': phone,
-      'email': email,
-      'discord': discord,
-      'color': selectedColor.value, // Save color as integer
-    });
-  }
-}
-
 
   void toggleEditMode() {
     setState(() {
@@ -199,9 +208,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   EditableCard(
                     isDarkMode: isDarkMode,
-                    icon: Icons.discord,
+                    icon: selectedSocialIcon,
                     info: discord,
-                    iconColor: Colors.purple,
+                    iconColor: selectedColor,
                     controller: discordController,
                     isEditing: isEditing,
                     onChanged: (value) {
@@ -209,6 +218,23 @@ class _HomeScreenState extends State<HomeScreen> {
                         discord = value;
                       });
                     },
+                    onIconTap: isEditing
+                        ? () {
+                            showModalBottomSheet(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return SocialMediaIconPicker(
+                                  onIconSelected: (IconData newIcon) {
+                                    setState(() {
+                                      selectedSocialIcon = newIcon;
+                                    });
+                                    _updateUserDetails();
+                                  },
+                                );
+                              },
+                            );
+                          }
+                        : null,
                   ),
                   const SizedBox(height: 20),
                   Row(
