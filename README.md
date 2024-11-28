@@ -43,6 +43,7 @@ This project is being worked on currenty, and a lot of updates are coming.
 <img width="500" alt="Screenshot 2024-11-05 at 13 35 14" src="https://github.com/user-attachments/assets/25abade7-56e6-494f-88a0-751712acb9fc">
 <img width="501" alt="Screenshot 2024-11-05 at 13 34 55" src="https://github.com/user-attachments/assets/ab1252db-7ce2-4d36-ac9c-529c02127418">
 <img width="502" alt="Screenshot 2024-11-05 at 13 33 46" src="https://github.com/user-attachments/assets/944a405c-12f0-4a5e-9c26-b14aa3333559">
+<img width="495" alt="Screenshot 2024-11-28 at 14 12 14" src="https://github.com/user-attachments/assets/a622e072-40ac-4902-9d09-8a745225481a">
 <img width="501" alt="Screenshot 2024-11-05 at 13 33 37" src="https://github.com/user-attachments/assets/0d3b5a46-076b-463d-b44b-252e88dfc032">
 <img width="506" alt="Screenshot 2024-11-05 at 13 32 27" src="https://github.com/user-attachments/assets/42fd1340-4b64-4a61-bfe1-8c7ebef91e95">
 <img width="504" alt="Screenshot 2024-11-05 at 13 32 16" src="https://github.com/user-attachments/assets/90373aa4-927a-4f24-b580-c214cedcf059">
