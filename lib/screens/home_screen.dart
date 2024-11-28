@@ -250,6 +250,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           });
                         },
                         activeColor: selectedColor,
+                        activeTrackColor: selectedColor.withOpacity(0.5),
+                        inactiveThumbColor: selectedColor,
+                        inactiveTrackColor: Colors.black,
                       ),
                     ],
                   ),

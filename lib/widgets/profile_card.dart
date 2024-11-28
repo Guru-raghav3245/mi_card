@@ -68,6 +68,11 @@ class ProfileCard extends StatelessWidget {
                 Row(
                   children: [
                     IconButton(
+                      icon: const Icon(Icons.share),
+                      onPressed: () {},
+                      tooltip: 'Share Profile',
+                    ),
+                    IconButton(
                       icon: Icon(
                         profile.isFavorite ? Icons.star : Icons.star_border,
                         color: profile.isFavorite ? Colors.yellow : null,
