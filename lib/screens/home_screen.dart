@@ -6,7 +6,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mi_card/dialogs/logout_dialog.dart';
 import 'package:mi_card/dialogs/color_picker.dart';
-import 'package:mi_card/widgets/social_media_icons.dart';
+import 'package:mi_card/dialogs/social_media_icons.dart';
+import 'package:mi_card/models/social_media_icon_data.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -63,12 +64,11 @@ class _HomeScreenState extends State<HomeScreen> {
           email = doc['email'] ?? email;
           discord = doc['discord'] ?? discord;
 
-          selectedSocialIcon = IconData(
-            doc['socialIconCode'] ?? Icons.discord.codePoint,
-            fontFamily: 'MaterialIcons',
+          // Use the new utility method to get icon
+          selectedSocialIcon = SocialMediaIconData.getIconFromName(
+            doc['socialIcon'] ?? 'discord'
           );
 
-          // Load saved color or default to teal
           selectedColor = Color(doc['color'] ?? Colors.teal.value);
         });
       }
@@ -85,12 +85,10 @@ class _HomeScreenState extends State<HomeScreen> {
         'email': email,
         'discord': discord,
         'color': selectedColor.value,
-        'socialIconCode': selectedSocialIcon.codePoint, // Add this line
+        'socialIcon': SocialMediaIconData.getIconName(selectedSocialIcon), // Use new method
       });
     }
-  }
-
-  void toggleEditMode() {
+  } toggleEditMode() {
     setState(() {
       isEditing = !isEditing;
       if (!isEditing) {

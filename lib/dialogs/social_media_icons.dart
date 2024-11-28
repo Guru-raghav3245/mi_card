@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:mi_card/models/social_media_icon_data.dart';
 
 class SocialMediaIconPicker extends StatelessWidget {
   final Function(IconData) onIconSelected;
@@ -8,29 +9,6 @@ class SocialMediaIconPicker extends StatelessWidget {
     super.key,
     required this.onIconSelected,
   });
-
-  final List<Map<String, dynamic>> socialIcons = const [
-    {'icon': FontAwesomeIcons.discord, 'name': 'Discord'},
-    {'icon': FontAwesomeIcons.facebook, 'name': 'Facebook'},
-    {'icon': FontAwesomeIcons.telegram, 'name': 'Telegram'},
-    {'icon': FontAwesomeIcons.whatsapp, 'name': 'WhatsApp'},
-    {'icon': FontAwesomeIcons.reddit, 'name': 'Reddit'},
-    {'icon': FontAwesomeIcons.linkedin, 'name': 'LinkedIn'},
-    {'icon': FontAwesomeIcons.snapchat, 'name': 'Snapchat'},
-    {'icon': FontAwesomeIcons.instagram, 'name': 'Instagram'},
-    {'icon': FontAwesomeIcons.tiktok, 'name': 'TikTok'},
-    {'icon': FontAwesomeIcons.twitter, 'name': 'Twitter'},
-    {'icon': FontAwesomeIcons.github, 'name': 'GitHub'},
-    {'icon': FontAwesomeIcons.medium, 'name': 'Medium'},
-    {'icon': FontAwesomeIcons.dev, 'name': 'Dev.to'},
-    {'icon': FontAwesomeIcons.stackOverflow, 'name': 'Stack Overflow'},
-    {'icon': FontAwesomeIcons.youtube, 'name': 'YouTube'},
-    {'icon': FontAwesomeIcons.twitch, 'name': 'Twitch'},
-    {'icon': FontAwesomeIcons.behance, 'name': 'Behance'},
-    {'icon': FontAwesomeIcons.dribbble, 'name': 'Dribbble'},
-    {'icon': FontAwesomeIcons.spotify, 'name': 'Spotify'},
-    {'icon': FontAwesomeIcons.globe, 'name': 'Website'},
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +27,7 @@ class SocialMediaIconPicker extends StatelessWidget {
                 color: Colors.black.withOpacity(0.1),
                 spreadRadius: 2,
                 blurRadius: 10,
-                offset: Offset(0, -2), // Shadow below the sheet
+                offset: const Offset(0, -2), // Shadow below the sheet
               ),
             ],
           ),
@@ -87,11 +65,12 @@ class SocialMediaIconPicker extends StatelessWidget {
                     mainAxisSpacing: 16,
                     childAspectRatio: 1, // Adjust the aspect ratio here
                   ),
-                  itemCount: socialIcons.length,
+                  itemCount: SocialMediaIconData.icons.length,
                   itemBuilder: (context, index) {
+                    final iconData = SocialMediaIconData.icons[index];
                     return InkWell(
                       onTap: () {
-                        onIconSelected(socialIcons[index]['icon']);
+                        onIconSelected(iconData['icon']);
                         Navigator.pop(context);
                       },
                       borderRadius: BorderRadius.circular(12),
@@ -101,27 +80,27 @@ class SocialMediaIconPicker extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
-                            padding: const EdgeInsets.all(10), // Adjust the padding here
+                            padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
-                              color: Theme.of(context).primaryColor.withOpacity(0.2), // Add a light background color for selected icon
+                              color: Theme.of(context).primaryColor.withOpacity(0.2),
                               borderRadius: BorderRadius.circular(12),
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.black.withOpacity(0.1),
                                   blurRadius: 4,
-                                  offset: Offset(0, 2),
+                                  offset: const Offset(0, 2),
                                 ),
                               ],
                             ),
                             child: FaIcon(
-                              socialIcons[index]['icon'],
-                              size: 32, // Increase the icon size
+                              iconData['icon'],
+                              size: 32,
                               color: Theme.of(context).primaryColor,
                             ),
                           ),
                           const SizedBox(height: 8),
                           Text(
-                            socialIcons[index]['name'],
+                            iconData['name'].toString().toUpperCase(),
                             style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
