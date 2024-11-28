@@ -1,7 +1,7 @@
 # mi_card
 
 This project is basically a personal digital business card
-It is a replacement for your default conacts app, but also helping you to add other info about the person you might forget.
+It is a replacement for your default contacts app, but also helping you to add other info about the person you might forget.
 
 ### This project is created by a person who was just exposed to flutter, so please don't expect much.
 
