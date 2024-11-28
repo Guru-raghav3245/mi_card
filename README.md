@@ -9,29 +9,31 @@ It is a replacement for your default conacts app, but also helping you to add ot
 ### I am always looking for improvements, so if you have any idea on how to take this project further, ping me on master.guru.raghav@gmail.com, or just upload an issue.
 
 ## Functionalities
-
-   ### 1. Profile Management
+   ### 1. Editable Digital Business Card
       * Display Digital Profile Card: Show a digital card with key contact details (name, role, email, phone number).
       * Editable Profile Card: Modify contact information as needed.
+      * Editable Icon: The Icon in the 3rd Card in the Home screen is editable when clicked on.
+      
+   ### 2. Profile Management
       * Add New Profile Cards: Create a new profile card for each contact.
       * Edit Existing Profile Cards: Update details on existing profiles.
       * Delete Profile Cards: Remove a profile card with an option to undo the deletion.
       * Edit Profile Picture: Choose a picture from the gallery or take a selfie with the camera.
       * Favorite Profiles: Mark profiles as favorites for easy access.
       
-   ### 2. User Accounts & Authentication
+   ### 3. User Accounts & Authentication
       * Account Creation: Users can create accounts using email and password.
       * Account Login: Users can log in using the email and password they provided during account creation.
       
-   ### 3. User Interface & Experience
+   ### 4. User Interface & Experience
       * Light and Dark Mode: Toggle between light and dark themes for a personalized UI.
       * Search Bar: Locate profile cards easily using a search function.
       
-   ### 4. Data Integrity & Security
+   ### 5. Data Integrity & Security
       * Validation on Add/Edit: Ensure fields are not left empty when creating or editing profiles.
       * Profile Information Storage: Store profiles securely, including emails, roles, names, and phone numbers.
       
-   ### 5. Firebase Integration
+   ### 6. Firebase Integration
       * Sync Information: Automatically update all home screen details to Firebase.
       * Profile Storage: Store all profiles with associated data (email, role, name, phone number) in Firebase.
       
