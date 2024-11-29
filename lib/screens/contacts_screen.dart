@@ -285,16 +285,13 @@ class _ContactsListScreenState extends State<ContactsListScreen> {
       context: context,
       builder: (context) => AddProfileDialog(
         onProfileAdded: (profile) async {
-          // Add the new profile to the local list
           setState(() {
             widget.profiles.add(profile);
             _updateSortedProfiles();
           });
 
-          // Save the updated list to Firebase
           await saveProfilesToFirebase();
 
-          // Reload the profiles from Firebase to ensure the UI updates with any changes
           await loadProfilesFromFirebase();
         },
         getRandomColor: getRandomColor,
@@ -310,11 +307,9 @@ class _ContactsListScreenState extends State<ContactsListScreen> {
         profile: profile,
         profiles: widget.profiles,
         onProfilesUpdated: (updatedProfiles) async {
-          // Update the list and Firebase
           widget.onProfilesUpdated(updatedProfiles);
           await saveProfilesToFirebase();
 
-          // Reload profiles from Firebase and refresh UI
           await loadProfilesFromFirebase();
         },
       ),
