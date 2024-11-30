@@ -1,13 +1,19 @@
 lib 
    dialogs
       add_profile_dialog.dart
+      color_picker.dart
       edit_profile_dialog.dart
+      logout_dialog.dart
+      social_media_icons.dart
+
    models
       profile_data.dart  
+      social_media_icon_data.dart
 
    screens
       home_screen.dart
       contacts_list.dart
+      auth_screen.dart
 
    utils
       utils.dart
@@ -16,4 +22,5 @@ lib
       editable_card.dart
       profile_card.dart
       search_bar.dart
+      
    main.dart

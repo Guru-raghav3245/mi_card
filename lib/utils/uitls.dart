@@ -22,7 +22,8 @@ Color getRandomColor() {
   return presetColors[random.nextInt(presetColors.length)];
 }
 
-bool isMatchProfile(ProfileData profile, String searchQuery, String selectedFilter) {
+bool isMatchProfile(
+    ProfileData profile, String searchQuery, String selectedFilter) {
   switch (selectedFilter) {
     case 'Name':
       return profile.name.toLowerCase().contains(searchQuery.toLowerCase());

@@ -65,5 +65,4 @@ class DefaultFirebaseOptions {
     authDomain: 'mi-card-3ae63.firebaseapp.com',
     storageBucket: 'mi-card-3ae63.firebasestorage.app',
   );
-
 }

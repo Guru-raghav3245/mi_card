@@ -4,103 +4,99 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class SocialMediaIconData {
   static final List<Map<String, dynamic>> icons = [
     {
-      'icon': FontAwesomeIcons.discord, 
-      'name': 'discord', 
+      'icon': FontAwesomeIcons.discord,
+      'name': 'discord',
       'displayName': 'Discord'
     },
     {
-      'icon': FontAwesomeIcons.facebook, 
-      'name': 'facebook', 
+      'icon': FontAwesomeIcons.facebook,
+      'name': 'facebook',
       'displayName': 'Facebook'
     },
     {
-      'icon': FontAwesomeIcons.telegram, 
-      'name': 'telegram', 
+      'icon': FontAwesomeIcons.telegram,
+      'name': 'telegram',
       'displayName': 'Telegram'
     },
     {
-      'icon': FontAwesomeIcons.whatsapp, 
-      'name': 'whatsapp', 
+      'icon': FontAwesomeIcons.whatsapp,
+      'name': 'whatsapp',
       'displayName': 'WhatsApp'
     },
     {
-      'icon': FontAwesomeIcons.reddit, 
-      'name': 'reddit', 
+      'icon': FontAwesomeIcons.reddit,
+      'name': 'reddit',
       'displayName': 'Reddit'
     },
     {
-      'icon': FontAwesomeIcons.linkedin, 
-      'name': 'linkedin', 
+      'icon': FontAwesomeIcons.linkedin,
+      'name': 'linkedin',
       'displayName': 'LinkedIn'
     },
     {
-      'icon': FontAwesomeIcons.snapchat, 
-      'name': 'snapchat', 
+      'icon': FontAwesomeIcons.snapchat,
+      'name': 'snapchat',
       'displayName': 'Snapchat'
     },
     {
-      'icon': FontAwesomeIcons.instagram, 
-      'name': 'instagram', 
+      'icon': FontAwesomeIcons.instagram,
+      'name': 'instagram',
       'displayName': 'Instagram'
     },
     {
-      'icon': FontAwesomeIcons.tiktok, 
-      'name': 'tiktok', 
+      'icon': FontAwesomeIcons.tiktok,
+      'name': 'tiktok',
       'displayName': 'TikTok'
     },
     {
-      'icon': FontAwesomeIcons.twitter, 
-      'name': 'twitter', 
+      'icon': FontAwesomeIcons.twitter,
+      'name': 'twitter',
       'displayName': 'Twitter'
     },
     {
-      'icon': FontAwesomeIcons.github, 
-      'name': 'github', 
+      'icon': FontAwesomeIcons.github,
+      'name': 'github',
       'displayName': 'GitHub'
     },
     {
-      'icon': FontAwesomeIcons.medium, 
-      'name': 'medium', 
+      'icon': FontAwesomeIcons.medium,
+      'name': 'medium',
       'displayName': 'Medium'
     },
+    {'icon': FontAwesomeIcons.dev, 'name': 'dev', 'displayName': 'Dev.to'},
     {
-      'icon': FontAwesomeIcons.dev, 
-      'name': 'dev', 
-      'displayName': 'Dev.to'
-    },
-    {
-      'icon': FontAwesomeIcons.stackOverflow, 
-      'name': 'stackoverflow', 
+      'icon': FontAwesomeIcons.stackOverflow,
+      'name': 'stackoverflow',
       'displayName': 'Stack Overflow'
     },
     {
-      'icon': FontAwesomeIcons.youtube, 
-      'name': 'youtube', 
+      'icon': FontAwesomeIcons.youtube,
+      'name': 'youtube',
       'displayName': 'YouTube'
     },
     {
-      'icon': FontAwesomeIcons.twitch, 
-      'name': 'twitch', 
+      'icon': FontAwesomeIcons.twitch,
+      'name': 'twitch',
       'displayName': 'Twitch'
     },
     {
-      'icon': FontAwesomeIcons.behance, 
-      'name': 'behance', 
+      'icon': FontAwesomeIcons.behance,
+      'name': 'behance',
       'displayName': 'Behance'
     },
     {
-      'icon': FontAwesomeIcons.dribbble, 
-      'name': 'dribbble', 
+      'icon': FontAwesomeIcons.dribbble,
+      'name': 'dribbble',
       'displayName': 'Dribbble'
     },
     {
-      'icon': FontAwesomeIcons.spotify, 
-      'name': 'spotify', 
+      'icon': FontAwesomeIcons.spotify,
+      'name': 'spotify',
       'displayName': 'Spotify'
     },
     {
-      'icon': FontAwesomeIcons.globe, 
-      'name': 'website', 
+      'icon': FontAwesomeIcons.globe,
+      'name': 'website',
       'displayName': 'Website'
     },
   ];

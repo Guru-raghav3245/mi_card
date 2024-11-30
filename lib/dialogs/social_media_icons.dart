@@ -82,7 +82,9 @@ class SocialMediaIconPicker extends StatelessWidget {
                           Container(
                             padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
-                              color: Theme.of(context).primaryColor.withOpacity(0.2),
+                              color: Theme.of(context)
+                                  .primaryColor
+                                  .withOpacity(0.2),
                               borderRadius: BorderRadius.circular(12),
                               boxShadow: [
                                 BoxShadow(
@@ -104,7 +106,10 @@ class SocialMediaIconPicker extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
-                              color: Theme.of(context).textTheme.labelMedium!.color,
+                              color: Theme.of(context)
+                                  .textTheme
+                                  .labelMedium!
+                                  .color,
                             ),
                             textAlign: TextAlign.center,
                             maxLines: 1,

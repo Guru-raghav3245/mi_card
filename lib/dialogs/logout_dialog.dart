@@ -6,7 +6,8 @@ import 'package:mi_card/screens/auth_screen.dart';
 Future<void> showLogoutDialog(BuildContext context) async {
   return showDialog<void>(
     context: context,
-    barrierDismissible: false, // Prevents dismissing the dialog by tapping outside
+    barrierDismissible:
+        false, // Prevents dismissing the dialog by tapping outside
     builder: (BuildContext context) {
       return AlertDialog(
         title: const Text('Are you sure you want to log out?'),
@@ -37,6 +38,7 @@ Future<void> _logout(BuildContext context) async {
   await FirebaseAuth.instance.signOut();
   Navigator.pushReplacement(
     context,
-    MaterialPageRoute(builder: (context) => const AuthScreen()), // Navigate to Auth screen
+    MaterialPageRoute(
+        builder: (context) => const AuthScreen()), // Navigate to Auth screen
   );
 }

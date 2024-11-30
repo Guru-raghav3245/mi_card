@@ -34,30 +34,28 @@ class _EditProfileDialogState extends State<EditProfileDialog> {
   }
 
   void _showColorPickerDialog() async {
+    final Color? color = await showDialog<Color>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Select a Color'),
+          content: ColorPalette(
+            onColorSelected: (Color selectedColor) {
+              widget.profile.color = selectedColor;
+              Navigator.pop(context, selectedColor);
+            },
+          ),
+        );
+      },
+    );
 
-  final Color? color = await showDialog<Color>(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        title: const Text('Select a Color'),
-        content: ColorPalette(
-          onColorSelected: (Color selectedColor) {
-            widget.profile.color = selectedColor;
-            Navigator.pop(context, selectedColor);
-          },
-        ),
-      );
-    },
-  );
-
-  if (color != null) {
-    setState(() {
-      widget.profile.color = color;
-    });
-    widget.onProfilesUpdated(widget.profiles);
+    if (color != null) {
+      setState(() {
+        widget.profile.color = color;
+      });
+      widget.onProfilesUpdated(widget.profiles);
+    }
   }
-}
-
 
   @override
   Widget build(BuildContext context) {

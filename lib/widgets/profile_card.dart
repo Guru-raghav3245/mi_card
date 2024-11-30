@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';  // Import Clipboard package
+import 'package:flutter/services.dart'; // Import Clipboard package
 import 'package:mi_card/models/profile_data.dart';
 
 class ProfileCard extends StatelessWidget {
@@ -41,15 +41,15 @@ class ProfileCard extends StatelessWidget {
                   profile.role,
                   style: const TextStyle(
                     fontSize: 14.0,
-                    color: Colors.grey, 
+                    color: Colors.grey,
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 10), 
+            const SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center, 
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Expanded(
                   child: Column(
@@ -84,9 +84,11 @@ Email - ${profile.email}
                         // Show the SnackBar at the top with slide-in effect
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
-                            content: const Text('Info has been copied onto Clipboard'),
+                            content: const Text(
+                                'Info has been copied onto Clipboard'),
                             behavior: SnackBarBehavior.floating,
-                            margin: const EdgeInsets.only(top: 50.0, left: 10.0, right: 10.0),
+                            margin: const EdgeInsets.only(
+                                top: 50.0, left: 10.0, right: 10.0),
                             backgroundColor: Colors.black,
                             duration: const Duration(seconds: 2),
                             shape: RoundedRectangleBorder(

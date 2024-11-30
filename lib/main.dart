@@ -19,7 +19,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+        debugShowCheckedModeBanner: false,
         title: 'Mi Card',
         theme: ThemeData().copyWith(
           colorScheme: ColorScheme.fromSeed(
@@ -28,7 +28,6 @@ class App extends StatelessWidget {
         home: StreamBuilder(
             stream: FirebaseAuth.instance.authStateChanges(),
             builder: (ctx, snapshot) {
-
               if (snapshot.hasData) {
                 return const HomeScreen();
               }

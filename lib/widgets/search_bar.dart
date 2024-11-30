@@ -6,7 +6,7 @@ class CustomSearchBar extends StatelessWidget {
   final List<String> filterOptions;
   final ValueChanged<String> onSearchChanged;
   final ValueChanged<String?> onFilterChanged;
-  final bool isDarkMode; 
+  final bool isDarkMode;
 
   const CustomSearchBar({
     super.key,
