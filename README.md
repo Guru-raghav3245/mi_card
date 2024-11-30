@@ -20,6 +20,7 @@ It is a replacement for your default contacts app, but also helping you to add o
       * Delete Profile Cards: Remove a profile card with an option to undo the deletion.
       * Edit Profile Picture: Choose a picture from the gallery or take a selfie with the camera.
       * Favorite Profiles: Mark profiles as favorites for easy access.
+      * Sharing Profile Cards: Click on the share button on the card to have all the info copied onto your clipboard.
       
    ### 3. User Accounts & Authentication
       * Account Creation: Users can create accounts using email and password.
