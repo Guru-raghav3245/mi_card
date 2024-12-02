@@ -12,7 +12,7 @@ It is a replacement for your default contacts app, but also helping you to add o
    ### 1. Editable Digital Business Card
       * Display Digital Profile Card: Show a digital card with key contact details (name, role, email, phone number).
       * Editable Profile Card: Modify contact information as needed.
-      * Editable Icon: The Icon in the 3rd Card in the Home screen is editable when clicked on.
+      * Editable Icon: The Icon in the 3rd Card in the Home screen is editable when clicked on(only in edit mode).
       
    ### 2. Profile Management
       * Add New Profile Cards: Create a new profile card for each contact.
