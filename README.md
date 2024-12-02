@@ -1,3 +1,4 @@
+<img width="494" alt="Screenshot 2024-12-02 at 17 30 11" src="https://github.com/user-attachments/assets/01a48048-874c-4707-a7f7-ddaa2503f384">
 # mi_card
 
 This project is basically a personal digital business card
