@@ -1,4 +1,3 @@
-<img width="494" alt="Screenshot 2024-12-02 at 17 30 11" src="https://github.com/user-attachments/assets/01a48048-874c-4707-a7f7-ddaa2503f384">
 # mi_card
 
 This project is basically a personal digital business card
@@ -54,3 +53,4 @@ This project is being worked on currenty, and a lot of updates are coming.
 <img width="492" alt="Screenshot 2024-12-02 at 17 22 55" src="https://github.com/user-attachments/assets/e16ecbca-a350-4979-9830-a545415281fb">
 <img width="502" alt="Screenshot 2024-11-05 at 13 31 36" src="https://github.com/user-attachments/assets/5a76b2b7-607c-47e2-ad82-02318192f799">
 <img width="492" alt="Screenshot 2024-12-02 at 17 27 11" src="https://github.com/user-attachments/assets/ff811a96-8588-40e1-b9e6-53f8997511a4">
+<img width="494" alt="Screenshot 2024-12-02 at 17 30 11" src="https://github.com/user-attachments/assets/01a48048-874c-4707-a7f7-ddaa2503f384">
