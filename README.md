@@ -29,6 +29,7 @@ It is a replacement for your default contacts app, but also helping you to add o
    ### 4. User Interface & Experience
       * Light and Dark Mode: Toggle between light and dark themes for a personalized UI.
       * Search Bar: Locate profile cards easily using a search function.
+      * Color Customisation: Home Screen colors can be customised in edit mode.
       
    ### 5. Data Integrity & Security
       * Validation on Add/Edit: Ensure fields are not left empty when creating or editing profiles.
