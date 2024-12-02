@@ -48,6 +48,8 @@ This project is being worked on currenty, and a lot of updates are coming.
 <img width="495" alt="Screenshot 2024-11-28 at 14 12 14" src="https://github.com/user-attachments/assets/a622e072-40ac-4902-9d09-8a745225481a">
 <img width="492" alt="Screenshot 2024-12-02 at 17 21 28" src="https://github.com/user-attachments/assets/d9f2ff5b-84fc-407b-af7a-a4e59df418ee">
 <img width="506" alt="Screenshot 2024-11-05 at 13 32 27" src="https://github.com/user-attachments/assets/42fd1340-4b64-4a61-bfe1-8c7ebef91e95">
-<img width="504" alt="Screenshot 2024-11-05 at 13 32 16" src="https://github.com/user-attachments/assets/90373aa4-927a-4f24-b580-c214cedcf059">
-<img width="501" alt="Screenshot 2024-11-05 at 13 32 05" src="https://github.com/user-attachments/assets/1acbbd26-f52d-4e4e-9f2e-1cf08e911100">
+<img width="490" alt="Screenshot 2024-12-02 at 17 24 41" src="https://github.com/user-attachments/assets/77ca9629-8e12-4024-a01d-ae2a48da781b">
+<img width="492" alt="Screenshot 2024-12-02 at 17 23 14" src="https://github.com/user-attachments/assets/2528b4fc-8746-4942-a3fc-5e4d719d8a25">
+<img width="492" alt="Screenshot 2024-12-02 at 17 22 55" src="https://github.com/user-attachments/assets/e16ecbca-a350-4979-9830-a545415281fb">
 <img width="502" alt="Screenshot 2024-11-05 at 13 31 36" src="https://github.com/user-attachments/assets/5a76b2b7-607c-47e2-ad82-02318192f799">
+<img width="492" alt="Screenshot 2024-12-02 at 17 27 11" src="https://github.com/user-attachments/assets/ff811a96-8588-40e1-b9e6-53f8997511a4">
