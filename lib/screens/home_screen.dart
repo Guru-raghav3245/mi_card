@@ -124,15 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
       });  
     }  
    }  
-  }  
-  
-  void _addNewCard() {  
-   setState(() {  
-    additionalCards  
-       .add({'title': 'New Card', 'value': '', 'icon': Icons.add_circle});  
-    _updateUserDetails();  
-   });  
-  }  
+  } 
   
   toggleEditMode() {  
    setState(() {  

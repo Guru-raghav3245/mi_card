@@ -50,13 +50,11 @@ class _ContactsListScreenState extends State<ContactsListScreen> {
           .doc(userId)
           .collection('contacts');
 
-      // Clear existing contacts
       final existingContacts = await contactsRef.get();
       for (var doc in existingContacts.docs) {
         await doc.reference.delete();
       }
 
-      // Add all current contacts
       for (var profile in widget.profiles) {
         await contactsRef.add({
           'name': profile.name,
@@ -195,7 +193,7 @@ class _ContactsListScreenState extends State<ContactsListScreen> {
                                 _updateSortedProfiles();
                               });
                               widget.onProfilesUpdated(widget.profiles);
-                              saveProfilesToFirebase(); // Add this line
+                              saveProfilesToFirebase(); 
 
                               ScaffoldMessenger.of(context).clearSnackBars();
                               ScaffoldMessenger.of(context).showSnackBar(
@@ -227,7 +225,7 @@ class _ContactsListScreenState extends State<ContactsListScreen> {
                                         });
                                         widget
                                             .onProfilesUpdated(widget.profiles);
-                                        saveProfilesToFirebase(); // Add this line
+                                        saveProfilesToFirebase();
                                       }
                                     },
                                   ),
@@ -259,6 +257,7 @@ class _ContactsListScreenState extends State<ContactsListScreen> {
                                   _updateSortedProfiles();
                                 });
                                 widget.onProfilesUpdated(widget.profiles);
+                                saveProfilesToFirebase(); 
                               },
                             ),
                           );
