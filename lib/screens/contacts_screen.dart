@@ -33,6 +33,42 @@ class _ContactsListScreenState extends State<ContactsListScreen> {
   String selectedFilter = 'Name';
   final List<String> filterOptions = ['Name', 'Role', 'Phone', 'Email'];
 
+  void addNewProfile() {
+    showDialog(
+      context: context,
+      builder: (context) => AddProfileDialog(
+        onProfileAdded: (profile) async {
+          setState(() {
+            widget.profiles.add(profile);
+            _updateSortedProfiles();
+          });
+
+          await saveProfilesToFirebase();
+
+          await loadProfilesFromFirebase();
+        },
+        getRandomColor: getRandomColor,
+      ),
+    );
+  }
+
+  void editProfile(BuildContext context, int index) {
+    final profile = widget.profiles[index];
+    showDialog(
+      context: context,
+      builder: (context) => EditProfileDialog(
+        profile: profile,
+        profiles: widget.profiles,
+        onProfilesUpdated: (updatedProfiles) async {
+          widget.onProfilesUpdated(updatedProfiles);
+          await saveProfilesToFirebase();
+
+          await loadProfilesFromFirebase();
+        },
+      ),
+    );
+  }
+
   void _updateSortedProfiles() {
     sortedProfiles = List<ProfileData>.from(widget.profiles);
     sortedProfiles.sort((a, b) {
@@ -105,7 +141,6 @@ class _ContactsListScreenState extends State<ContactsListScreen> {
     _updateSortedProfiles();
   }
 
-  @override
   Widget build(BuildContext context) {
     _updateSortedProfiles();
     return Scaffold(
@@ -275,42 +310,6 @@ class _ContactsListScreenState extends State<ContactsListScreen> {
         backgroundColor: widget.isDarkMode ? Colors.grey[700] : Colors.blue,
         child: Icon(Icons.add,
             color: widget.isDarkMode ? Colors.white : Colors.black),
-      ),
-    );
-  }
-
-  void addNewProfile() {
-    showDialog(
-      context: context,
-      builder: (context) => AddProfileDialog(
-        onProfileAdded: (profile) async {
-          setState(() {
-            widget.profiles.add(profile);
-            _updateSortedProfiles();
-          });
-
-          await saveProfilesToFirebase();
-
-          await loadProfilesFromFirebase();
-        },
-        getRandomColor: getRandomColor,
-      ),
-    );
-  }
-
-  void editProfile(BuildContext context, int index) {
-    final profile = widget.profiles[index];
-    showDialog(
-      context: context,
-      builder: (context) => EditProfileDialog(
-        profile: profile,
-        profiles: widget.profiles,
-        onProfilesUpdated: (updatedProfiles) async {
-          widget.onProfilesUpdated(updatedProfiles);
-          await saveProfilesToFirebase();
-
-          await loadProfilesFromFirebase();
-        },
       ),
     );
   }
