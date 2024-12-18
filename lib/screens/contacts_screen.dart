@@ -141,6 +141,7 @@ class _ContactsListScreenState extends State<ContactsListScreen> {
     _updateSortedProfiles();
   }
 
+  @override
   Widget build(BuildContext context) {
     _updateSortedProfiles();
     return Scaffold(
